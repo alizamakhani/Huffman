@@ -1,11 +1,30 @@
-Name: firstname lastname
-NetID: abc123
-Hours Spent: Give an exact (decimal) number here
-Consulted With: provide names or NetIDs of any students, TAs, or professors you consulted with on the assignment. If you did not consult with anyone, you must explicitly write NONE.
-Resources Used: Any books, papers, or online resources. If you did not use any outside resources, you must explicitly write NONE 
-Impressions: Your answer here
+Name: Aliza Makhani
+NetID: am491
+Hours Spent: 8
+Consulted With: NONE
+Resources Used: Java API, stack overflow, discussion docs and lecture slides
+Impressions: Fun :)
 ----------------------------------------------------------------------
-Problem 1: Describe testing
-Problem 2: Benchmark and analyze your code
-Problem 3: Text vs. Binary 
-Problem 4: Compressing compressed files
+Problem 1: I tested the decompress method using the given .hf files. I tested the compress method by writing my 
+own short test.java file (submitted) that was one sentence long. I conducted each method by hand to know what they
+should return and also included various print statements within each method to verify that each worked along the way.
+Many of these print statements are still in the code, just commented out. 
+
+Problem 2: Increasing the file length increases the time required to compress (proof: in calgary directory, 
+both geo and obj1 have 256 alphabet characters, but geo is ~5x the size of obj1 and takes ~4x as long to compress).
+Increasing the file length also decreases the compression rate (proof: in waterloo directory both zelda.tif and
+frymire.tif contain about the same number of unique alphabet characters and frymire.tif is ~14x the size of zelda.tif, 
+but frymire.tif compressed is to 59% of its original length whereas zelda.tif is about 91% of its original length). 
+Increasing the number of unique alphabet characters does not change the time required to compress (proof: in waterloo directory, 
+all files of size 65,666 bytes with various unique character lengths take roughly the same amount of time to compress). 
+Increasing the number of unique alphabet characters decreases the compression rate (proof: in waterloo directory, circles.tif and
+bird.tif are the same size and bird.tif contains ~8x the number of unique alphabet characters but after being compressed 
+circles.tif is ~24% of its original length while bird.tif is ~96% of its original length). 
+
+Problem 3: Overall, text files compress more than binary image files. A reason for this could be that text files
+contain more repeated characters at widely varying rates which could lead to a better constructed tree that 
+allows for more compression.
+
+Problem 4: No, you cannot compress an already compressed file with no information loss-- it doesn't make any sense to. 
+If a file is already compressed, creating an additional compression of it likely won't save THAT much space and we
+wouldn't be able to decompress twice losslessly. 

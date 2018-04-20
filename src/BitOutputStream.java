@@ -143,6 +143,7 @@ public class BitOutputStream extends OutputStream {
 		if (numBits > available) {
 			bitBuffer |= Integer.toUnsignedLong(value) >>> (numBits - available);
 			value &= bitMask[numBits - available];
+			//System.out.println(value);
 			numBits -= available;
 			emptyBitBuffer();
 		}
